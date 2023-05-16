@@ -18,14 +18,24 @@ ThemeData:
 PrimarySwatch:
 'primarySwatch'
 ;
-BIGER:'<';
 
-SMALLER:'>';
+
 
 //TODO: changes to parser
 //TODO: sorting
-OPERATION: BIGER|SMALLER|'+'|'-'|'*'|'%'|'/'|'<='|'>='|'++'|'--'|'$';
 
+SMALLER:'>';
+BIGER:'<';
+PLUS:'+';
+MINUS:'-';
+STAR:'*';
+MOD:'%';
+DEVIDE:'/';
+SMALLER_OR_EQUAL:'<=';
+BIGER_OR_EQUAL:'>=';
+PLUS_PLUS:'++';
+MINUS_MINUS:'--';
+SDOLLAR:'$';
 SCAFFOLD:'Scaffold';
 Q_MARK:'?';
 STATE:'State';
@@ -358,24 +368,25 @@ ASSERT:    'assert';
 MATERIALAPP:'MaterialApp';
 
 HOME: 'home';
-
+STRING_VAL
+   : '"' (~[\n\r])*? '"'
+   |'\''(~[\n\r])*? '\''
+   ;
 VAR_NAME: [a-zA-Z_] [a-zA-Z_0-9]*;
 
-STRING_OPEN
-    : '\'' -> pushMode(STRING)
-    ;
+
 
 
 mode STRING;
 
 //
-STRING_VAL
-   : '"' (~[\n\r])*? '"'
-   ;
+
 CHAR_VAL
    : '\'' (~[\n\r])*? '\''
    ;
-
+STRING_OPEN
+    : '\'' -> pushMode(STRING)
+    ;
 STRING_CLOSE
     : '\'' -> popMode
     ;

@@ -338,6 +338,16 @@ public interface dartParserListener extends ParseTreeListener {
 	 */
 	void exitFor(dartParser.ForContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link dartParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperation(dartParser.OperationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link dartParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperation(dartParser.OperationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link dartParser#flutter}.
 	 * @param ctx the parse tree
 	 */

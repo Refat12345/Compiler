@@ -209,6 +209,12 @@ public interface dartParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFor(dartParser.ForContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link dartParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperation(dartParser.OperationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link dartParser#flutter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
